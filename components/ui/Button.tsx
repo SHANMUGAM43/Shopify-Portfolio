@@ -11,6 +11,7 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   className?: string;
   external?: boolean;
+  download?: string | boolean;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   ariaLabel?: string;
@@ -24,6 +25,7 @@ export function Button({
   size = "md",
   className = "",
   external = false,
+  download,
   disabled = false,
   type = "button",
   ariaLabel,
@@ -33,10 +35,10 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-900/40 hover:shadow-purple-700/50 hover:scale-[1.02]",
+      "bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-900/40 hover:shadow-purple-700/50 hover:scale-[1.01]",
     outline:
-      "border border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:border-purple-400 hover:text-white hover:scale-[1.02]",
-    ghost: "text-zinc-400 hover:text-white hover:bg-white/5 hover:scale-[1.02]",
+      "border border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:border-purple-400 hover:text-white hover:scale-[1.01]",
+    ghost: "text-zinc-400 hover:text-white hover:bg-white/5 hover:scale-[1.01]",
   };
 
   const sizes = {
@@ -57,6 +59,14 @@ export function Button({
   );
 
   if (href) {
+    if (download) {
+      return (
+        <a href={href} download={download} className={classes} aria-label={ariaLabel}>
+          {inner}
+        </a>
+      );
+    }
+
     if (external) {
       return (
         <a

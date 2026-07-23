@@ -18,16 +18,16 @@ export function FadeIn({
   direction = "up",
   className = "",
   once = true,
-  duration = 0.7,
+  duration = 0.55,
 }: FadeInProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-50px" });
 
   const directionMap = {
-    up: { y: 32, x: 0 },
-    down: { y: -32, x: 0 },
-    left: { y: 0, x: 32 },
-    right: { y: 0, x: -32 },
+    up: { y: 18, x: 0 },
+    down: { y: -18, x: 0 },
+    left: { y: 0, x: 18 },
+    right: { y: 0, x: -18 },
     none: { y: 0, x: 0 },
   };
 
@@ -54,7 +54,7 @@ interface StaggerProps {
 export function StaggerContainer({
   children,
   className = "",
-  staggerDelay = 0.1,
+  staggerDelay = 0.07,
 }: StaggerProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -75,12 +75,12 @@ export function StaggerContainer({
 }
 
 export const staggerItem = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.45,
       ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
     },
   },
@@ -101,9 +101,9 @@ export function ScaleIn({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.88 }}
+      initial={{ opacity: 0, scale: 0.96 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.45, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}
@@ -150,9 +150,9 @@ export function BlurIn({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, filter: "blur(12px)", y: 16 }}
+      initial={{ opacity: 0, filter: "blur(8px)", y: 14 }}
       animate={isInView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}
@@ -179,15 +179,14 @@ export function AnimatedHeading({
       {words.map((word, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 28, rotateX: -40 }}
-          animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+          initial={{ opacity: 0, y: 14 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{
-            duration: 0.55,
-            delay: delay + i * 0.07,
+            duration: 0.4,
+            delay: delay + i * 0.05,
             ease: [0.25, 0.1, 0.25, 1],
           }}
           className="inline-block"
-          style={{ transformOrigin: "bottom" }}
         >
           {word}
         </motion.span>

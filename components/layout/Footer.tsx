@@ -2,8 +2,6 @@ import Link from "next/link";
 import { navLinks } from "@/lib/data";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer
       className="border-t border-white/5 bg-[#050505] py-12 mt-24"
@@ -36,8 +34,8 @@ export function Footer() {
           </ul>
         </nav>
 
-        <p className="text-zinc-600 text-xs">
-          © {year} Shanmugam Paramasivam. All rights reserved.
+        <p className="text-zinc-500 text-sm text-center md:text-right">
+          Designed & Developed by <span className="text-white font-semibold">Shanmugam Paramasivam</span>
         </p>
       </div>
     </footer>

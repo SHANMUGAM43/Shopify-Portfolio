@@ -47,8 +47,14 @@ export default function ExperiencePage() {
           </BlurIn>
           <FadeIn delay={0.2}>
             <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-              Over 4 years delivering high-quality Shopify experiences for brands of all sizes.
+              Over 5 years delivering high-quality Shopify experiences for brands of all sizes.
             </p>
+          </FadeIn>
+          <FadeIn delay={0.26}>
+            <div className="inline-flex items-center gap-2 mt-5 rounded-full border border-purple-500/20 bg-purple-500/8 px-4 py-2 text-sm text-purple-300">
+              <span aria-hidden="true">●</span>
+              Interactive Timeline
+            </div>
           </FadeIn>
         </div>
 
@@ -57,7 +63,7 @@ export default function ExperiencePage() {
           {/* Animated vertical line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-white/5 hidden md:block" aria-hidden="true" />
           <motion.div
-            className="absolute left-8 top-0 w-px bg-gradient-to-b from-purple-500 via-purple-400 to-transparent origin-top hidden md:block"
+            className="absolute left-8 top-0 w-px bg-linear-to-b from-purple-500 via-purple-400 to-transparent origin-top hidden md:block"
             style={{ scaleY: lineScaleY, height: "100%" }}
             aria-hidden="true"
           />
@@ -85,18 +91,8 @@ export default function ExperiencePage() {
                           transition={{ duration: 0.5, delay: i * 0.08 + 0.1 }}
                           className="text-white text-xl font-bold"
                         >
-                          {exp.role}
+                          {exp.role} - {exp.company}
                         </motion.h2>
-                        <motion.p
-                          initial={{ opacity: 0, x: -16 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: i * 0.08 + 0.16 }}
-                          className="font-semibold mt-0.5"
-                          style={{ background: "linear-gradient(135deg, #c084fc 0%, #a855f7 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
-                        >
-                          {exp.company}
-                        </motion.p>
                       </div>
                       <div className="flex flex-col items-end gap-1">
                         <Badge variant="purple">{exp.period}</Badge>

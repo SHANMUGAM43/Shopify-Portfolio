@@ -33,6 +33,59 @@ const contactMethods = [
   },
 ];
 
+const socialLinks = [
+  {
+    label: "Email",
+    href: "mailto:shanmugamstar2000@outlook.com",
+  },
+  {
+    label: "Call",
+    href: "tel:+919994275300",
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/919994275300",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/shanmugam-p-5273721a6",
+  },
+] as const;
+
+function SocialIcon({ label }: { label: (typeof socialLinks)[number]["label"] }) {
+  if (label === "Email") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5">
+        <rect x="3" y="5" width="18" height="14" rx="3" />
+        <path d="m4 7 8 6 8-6" />
+      </svg>
+    );
+  }
+
+  if (label === "Call") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.64 2.63a2 2 0 0 1-.45 2.11L8 9.76a16 16 0 0 0 6.24 6.24l1.3-1.3a2 2 0 0 1 2.11-.45c.85.31 1.73.52 2.63.64A2 2 0 0 1 22 16.92Z" />
+      </svg>
+    );
+  }
+
+  if (label === "WhatsApp") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5">
+        <path d="M20 11.5A8.5 8.5 0 0 1 7.6 19l-3.6 1 1-3.5A8.5 8.5 0 1 1 20 11.5Z" />
+        <path d="M9.7 8.9c.2-.5.5-.5.7-.5h.6c.2 0 .4 0 .5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3-.1.5.3.6.8 1.2 1.4 1.7.7.5 1.2.8 1.8 1 .2.1.4 0 .5-.1l.6-.7c.1-.1.3-.2.5-.1l1.3.6c.2.1.4.2.4.5v.5c0 .3-.1.6-.5.8-.4.2-1 .3-1.7.2-.7-.1-1.5-.4-2.5-.9-1-.6-1.9-1.3-2.7-2.2-.7-.9-1.1-1.8-1.2-2.5-.1-.7 0-1.3.2-1.7Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+      <path d="M6.94 8.5H3.56V19h3.38V8.5ZM5.25 3A2 2 0 1 0 5.3 7a2 2 0 0 0-.05-4ZM20.44 12.58c0-3.12-1.67-4.58-3.9-4.58-1.8 0-2.6.99-3.05 1.68V8.5h-3.38c.04.79 0 10.5 0 10.5h3.38v-5.86c0-.31.02-.62.11-.84.24-.61.8-1.25 1.73-1.25 1.22 0 1.71.93 1.71 2.3V19H20.4v-6.42Z" />
+    </svg>
+  );
+}
+
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -230,6 +283,29 @@ export default function ContactPage() {
 
           {/* Sidebar */}
           <StaggerContainer className="space-y-4" staggerDelay={0.08}>
+              <motion.div
+                variants={staggerItem}
+                className="glass rounded-2xl p-5 border border-white/5"
+              >
+                <p className="text-zinc-500 text-xs uppercase tracking-[0.24em] mb-4">Connect</p>
+                <div className="flex items-center gap-3">
+                  {socialLinks.map((link) => (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                      rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                      whileHover={{ y: -1, scale: 1.02 }}
+                      whileTap={{ scale: 0.985 }}
+                      className="group inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-zinc-300 transition-all duration-200 hover:border-purple-400/40 hover:bg-purple-500/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                      aria-label={link.label}
+                    >
+                      <SocialIcon label={link.label} />
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+
               {contactMethods.map((method) => (
                 <motion.a
                   key={method.label}
@@ -237,15 +313,15 @@ export default function ContactPage() {
                   href={method.href}
                   target={method.href.startsWith("mailto") ? undefined : "_blank"}
                   rel={method.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                  whileHover={{ scale: 1.02, y: -2, borderColor: "rgba(168,85,247,0.4)" }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
+                  whileHover={{ scale: 1.01, y: -1, borderColor: "rgba(168,85,247,0.4)" }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.18 }}
                   className="glass flex items-center gap-4 rounded-2xl p-5 border border-white/5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                   aria-label={`${method.label}: ${method.value}`}
                 >
                   <motion.span
-                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.04 }}
+                    transition={{ duration: 0.18 }}
                     className="text-2xl shrink-0"
                     aria-hidden="true"
                   >{method.icon}</motion.span>
@@ -278,22 +354,23 @@ export default function ContactPage() {
               <motion.a
                 variants={staggerItem}
                 href="/resume/Shanmugam_Paramasivam_Resume.pdf"
-                download="Shanmugam_Paramasivam_Resume.pdf"
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.01, y: -1 }}
+                whileTap={{ scale: 0.985 }}
                 className="flex items-center justify-between gap-4 w-full rounded-2xl px-5 py-4 border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 hover:border-purple-400 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 group"
-                aria-label="Download resume PDF"
+                aria-label="Open resume PDF in a new tab"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl" aria-hidden="true">📄</span>
                   <div>
-                    <p className="text-white text-sm font-semibold">Download Resume</p>
+                    <p className="text-white text-sm font-semibold">Open Resume</p>
                     <p className="text-zinc-500 text-xs">PDF · Always up to date</p>
                   </div>
                 </div>
                 <motion.span
-                  animate={{ y: [0, 3, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                  animate={{ y: [0, 2, 0] }}
+                  transition={{ repeat: Infinity, duration: 2.1, ease: "easeInOut" }}
                   className="text-purple-400 group-hover:text-white text-lg transition-colors"
                   aria-hidden="true"
                 >

@@ -10,17 +10,17 @@ import { FadeIn } from "@/components/ui/FadeIn";
 function ProfileAvatar() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 0, scale: 0.94 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.65, delay: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
       className="relative flex items-center justify-center"
       aria-hidden="true"
     >
       {/* Outer slow-rotating gradient ring */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-        className="absolute w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] rounded-full"
+        transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+        className="absolute w-70 h-70 sm:w-85 sm:h-85 rounded-full"
         style={{
           background:
             "conic-gradient(from 0deg, #7c3aed, #a855f7, #c084fc, transparent, transparent, #7c3aed)",
@@ -35,33 +35,35 @@ function ProfileAvatar() {
       {/* Inner counter-rotating dashed ring */}
       <motion.div
         animate={{ rotate: -360 }}
-        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        className="absolute w-[310px] h-[310px] sm:w-[370px] sm:h-[370px] rounded-full border border-dashed border-purple-500/20"
+        transition={{ repeat: Infinity, duration: 34, ease: "linear" }}
+        className="absolute w-77.5 h-77.5 sm:w-92.5 sm:h-92.5 rounded-full border border-dashed border-purple-500/20"
       />
 
       {/* Outermost subtle ring */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-        className="absolute w-[340px] h-[340px] sm:w-[410px] sm:h-[410px] rounded-full border border-purple-500/10"
+        transition={{ repeat: Infinity, duration: 42, ease: "linear" }}
+        className="absolute w-85 h-85 sm:w-102.5 sm:h-102.5 rounded-full border border-purple-500/10"
       />
 
       {/* Glow blob behind image */}
-      <div
-        className="absolute w-52 h-52 rounded-full blur-[60px] opacity-40"
+      <motion.div
+        animate={{ scale: [1, 1.04, 1], opacity: [0.24, 0.36, 0.24] }}
+        transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
+        className="absolute w-56 h-56 sm:w-72 sm:h-72 rounded-full blur-[70px]"
         style={{
-          background: "radial-gradient(circle, #9333ea 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(192,132,252,0.9) 0%, rgba(168,85,247,0.2) 45%, transparent 75%)",
         }}
       />
 
       {/* Floating idle motion wrapper */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+        animate={{ y: [0, -4, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
         className="relative z-10"
       >
         {/* Profile image */}
-        <div className="w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-purple-500/40 shadow-2xl shadow-purple-900/60 relative">
+        <div className="w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-purple-400/40 ring-1 ring-white/15 shadow-[0_26px_80px_rgba(124,58,237,0.45)] relative">
           <Image
             src="/profile_pic.jpeg"
             alt="Shanmugam Paramasivam — Senior Shopify Developer"
@@ -69,6 +71,10 @@ function ProfileAvatar() {
             className="object-cover object-center"
             priority
             sizes="(max-width: 640px) 208px, 256px"
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "linear-gradient(145deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 42%)" }}
           />
         </div>
 
@@ -115,14 +121,14 @@ export function HeroSection() {
       {/* Background gradient orbs — parallax on mouse move */}
       <motion.div
         style={{ x: orb1X, y: orb1Y }}
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20 pointer-events-none"
+        className="absolute top-1/4 left-1/4 w-150 h-150 rounded-full blur-[120px] opacity-20 pointer-events-none"
         aria-hidden="true"
       >
         <div className="w-full h-full rounded-full" style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
       </motion.div>
       <motion.div
         style={{ x: orb2X, y: orb2Y }}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] opacity-15 pointer-events-none"
+        className="absolute bottom-1/4 right-1/4 w-100 h-100 rounded-full blur-[100px] opacity-15 pointer-events-none"
         aria-hidden="true"
       >
         <div className="w-full h-full rounded-full" style={{ background: "radial-gradient(circle, #a855f7 0%, transparent 70%)" }} />
@@ -162,9 +168,17 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-white mb-4"
             >
-              Hi, I&apos;m{" "}
+              Shopify Plus Developer | Software Engineer II
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-2xl sm:text-3xl font-semibold text-zinc-400 mb-6"
+            >
               <span
                 style={{
                   background:
@@ -174,28 +188,8 @@ export function HeroSection() {
                   backgroundClip: "text",
                 }}
               >
-                Shanmugam
+                Building scalable Shopify experiences with Liquid, React, Next.js, GraphQL and Accessibility-first development.
               </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-2xl sm:text-3xl font-semibold text-zinc-400 mb-6"
-            >
-              Senior Shopify Developer
-            </motion.p>
-
-            {/* Sub headline */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-lg text-zinc-500 max-w-xl leading-relaxed mb-10 mx-auto lg:mx-0"
-            >
-              I build high-performance Shopify storefronts, headless commerce
-              experiences and custom apps for world-class brands.
             </motion.p>
 
             {/* CTA buttons */}
@@ -205,11 +199,16 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
             >
-              <Button href="/projects" size="lg">
-                View My Work
+              <Button
+                href="/resume/Shanmugam_Paramasivam_Resume.pdf"
+                external
+                size="md"
+                ariaLabel="Open resume PDF in a new tab"
+              >
+                <span aria-hidden="true">📄</span> Resume
               </Button>
-              <Button href="/contact" variant="outline" size="lg">
-                Get In Touch
+              <Button href="/projects" variant="outline" size="md" ariaLabel="View projects">
+                <span aria-hidden="true">💼</span> View Projects
               </Button>
             </motion.div>
           </div>
@@ -271,7 +270,7 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-purple-500 to-transparent"
+          className="w-px h-8 bg-linear-to-b from-purple-500 to-transparent"
         />
       </motion.div>
     </section>
@@ -344,15 +343,23 @@ export function HomeAboutSnippet() {
               commerce experiences
             </span>
           </h2>
-          <p className="text-zinc-400 text-lg leading-relaxed mb-6">
-            I&apos;m a Senior Shopify Developer with 6+ years of experience building fast, 
-            accessible and scalable ecommerce experiences. I specialize in Shopify Plus, 
-            headless storefronts and custom app development.
-          </p>
-          <p className="text-zinc-500 leading-relaxed mb-8">
-            Currently working with Coty Inc., building storefronts for world-renowned brands 
-            like Kylie Jenner Cosmetics, Philosophy and Orveda.
-          </p>
+          <ul className="grid sm:grid-cols-2 gap-3 mb-8" aria-label="About me highlights">
+            {[
+              "Shopify Plus Developer",
+              "Accessibility Specialist",
+              "Theme Customization",
+              "Store Migration",
+              "Custom App Integration",
+              "Performance Optimization",
+            ].map((highlight) => (
+              <li
+                key={highlight}
+                className="rounded-xl border border-white/10 bg-white/2 px-4 py-2 text-zinc-300 text-sm"
+              >
+                {highlight}
+              </li>
+            ))}
+          </ul>
           <Button href="/about" variant="outline">
             More About Me →
           </Button>
@@ -369,9 +376,9 @@ export function HomeAboutSnippet() {
             <div className="relative space-y-6">
               {[
                 { label: "Specialisation", value: "Shopify Plus & Headless" },
-                { label: "Currently at", value: "Coty Inc." },
-                { label: "Location", value: "Remote / Global" },
-                { label: "Languages", value: "Liquid, JS, TypeScript" },
+                { label: "Currently at", value: "Photon Interactive Private Limited" },
+                { label: "Location", value: "Chennai" },
+                { label: "Languages", value: "Liquid, JavaScript, TypeScript" },
               ].map((item) => (
                 <div key={item.label} className="flex justify-between items-center border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   <span className="text-zinc-500 text-sm">{item.label}</span>

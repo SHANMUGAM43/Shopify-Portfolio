@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -81,11 +82,13 @@ export function Navbar() {
 
           {/* CTAs */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href="/resume/Shanmugam_Paramasivam_Resume.pdf"
-              download="Shanmugam_Paramasivam_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-purple-500/40 text-purple-300 text-sm font-medium hover:bg-purple-500/10 hover:border-purple-400 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
-              aria-label="Download resume"
+              aria-label="Open resume in a new tab"
             >
               <span aria-hidden="true">↓</span> Resume
             </a>
@@ -154,6 +157,14 @@ export function Navbar() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navLinks.length * 0.06 + 0.1, duration: 0.4 }}
+              className="mt-4"
+            >
+              <ThemeToggle mobile />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.06 + 0.16, duration: 0.4 }}
             >
               <Link
                 href="/contact"

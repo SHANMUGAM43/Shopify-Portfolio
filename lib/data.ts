@@ -8,29 +8,18 @@ export const navLinks = [
 ];
 
 export const skills = {
-  "Shopify & Commerce": [
-    { name: "Shopify", level: 97 },
-    { name: "Liquid", level: 96 },
-    { name: "Accessibility", level: 90 },
-    { name: "SEO", level: 88 },
+  "Commerce Stack": [
+    "Shopify",
+    "Liquid",
+    "GraphQL",
+    "REST API",
+    "Custom Apps",
+    "Store Migrations",
+    "Accessibility",
+    "SEO",
   ],
-  "Frontend": [
-    { name: "JavaScript", level: 94 },
-    { name: "React", level: 93 },
-    { name: "Next.js", level: 92 },
-    { name: "HTML", level: 97 },
-    { name: "CSS", level: 95 },
-    { name: "Tailwind", level: 94 },
-  ],
-  "Backend & Tools": [
-    { name: "PHP", level: 88 },
-    { name: "Laravel", level: 86 },
-    { name: "MySQL", level: 84 },
-    { name: "GraphQL", level: 87 },
-    { name: "REST API", level: 90 },
-    { name: "Git", level: 95 },
-    { name: "GitHub", level: 95 },
-  ],
+  Frontend: ["React", "Next.js", "JavaScript", "TypeScript", "Tailwind"],
+  "Backend & Tools": ["PHP", "Laravel", "APIs", "MySQL", "MongoDB", "Git"],
 };
 
 export const experiences = [
@@ -40,12 +29,13 @@ export const experiences = [
     period: "Aug 2025 — Present",
     location: "Chennai, Tamil Nadu · On-site",
     description:
-      "Shopify projects enhancement including custom feature development and performance optimisation. Led theme redesign initiatives to improve UI/UX and responsiveness. Developed and maintained private Shopify apps for business-specific needs.",
+      "Delivering Shopify Plus enhancements focused on accessibility, search experience and storefront performance.",
     achievements: [
-      "Led theme redesign initiatives improving UI/UX and responsiveness",
-      "Developed and maintained private Shopify apps for business-specific needs",
-      "Implemented Storefront APIs, REST APIs and GraphQL APIs for third-party integrations",
-      "Extended store functionalities through seamless API integration",
+      "Shopify Plus development for scalable storefront enhancements",
+      "Accessibility implementation aligned with WCAG guidelines",
+      "Algolia integration for faster and more relevant product discovery",
+      "Performance optimization across key customer journeys",
+      "Custom section and metafield development for flexible content",
     ],
     tech: ["Shopify", "Liquid", "Storefront API", "GraphQL", "REST API", "JavaScript"],
   },
@@ -55,13 +45,13 @@ export const experiences = [
     period: "Feb 2024 — Aug 2025",
     location: "Chennai, Tamil Nadu · On-site",
     description:
-      "Specialised in Fintech projects, independently managing the K-One (Knowledge One) platform — a comprehensive solution that optimises customer support processes with real-time call management and advanced analytics.",
+      "Led Fintech platform development focused on support automation and scalable backend architecture.",
     achievements: [
-      "Designed and developed a robust ticketing system for managing customer issues",
-      "Implemented real-time call management features improving service experience",
-      "Built an integrated knowledge bank with FAQs and product details",
-      "Introduced advanced data analytics tools for monitoring customer interactions",
-      "Leveraged Laravel's scalability to handle increasing support volumes securely",
+      "Built a production-grade ticketing workflow for customer issue management",
+      "Implemented real-time call management to improve support operations",
+      "Developed an integrated knowledge base for FAQs and product references",
+      "Introduced analytics dashboards for customer interaction insights",
+      "Scaled Laravel and MySQL architecture for growing support traffic",
     ],
     tech: ["Laravel", "PHP", "MySQL", "JavaScript", "REST API"],
   },
@@ -71,13 +61,13 @@ export const experiences = [
     period: "Aug 2022 — Feb 2024",
     location: "Chennai, Tamil Nadu · On-site",
     description:
-      "Contributed to and handled 20+ Shopify and Shopify Plus projects — including e-commerce store migrations, theme redesigns and custom app development integrated with Shopify stores.",
+      "Delivered Shopify and Shopify Plus projects across migration, customization and app integration workstreams.",
     achievements: [
-      "Successfully delivered 20+ Shopify and Shopify Plus projects",
-      "Handled e-commerce store migrations to Shopify and theme redesign projects",
-      "Built custom apps using Laravel and MySQL integrated with Shopify stores",
-      "Integrated Shopify REST APIs, GraphQL and AJAX APIs",
-      "Actively worked on JIRA, GitHub with hands-on code review and debugging",
+      "Delivered 20+ Shopify and Shopify Plus implementations",
+      "Executed store migrations with minimal downtime and data risk",
+      "Developed custom Laravel apps integrated with Shopify workflows",
+      "Implemented REST, GraphQL and AJAX integrations for storefront features",
+      "Led debugging and code review cycles using JIRA and GitHub",
     ],
     tech: ["Shopify Plus", "Liquid", "Laravel", "MySQL", "GraphQL", "REST API", "GitHub"],
   },
@@ -87,12 +77,12 @@ export const experiences = [
     period: "Jan 2021 — Mar 2022",
     location: "Namakkal, Tamil Nadu · Hybrid",
     description:
-      "Worked on 5+ web development projects using HTML, CSS, JavaScript, PHP and MySQL. Built responsive websites, dynamic web apps and custom backend features.",
+      "Built web products end-to-end with responsive UI delivery and backend feature implementation.",
     achievements: [
-      "Delivered 5+ web development projects end-to-end",
-      "Built responsive websites and dynamic web applications",
-      "Created custom backend features with PHP and MySQL",
-      "Integrated front-end interfaces with server-side logic",
+      "Delivered 5+ web projects from development to release",
+      "Built responsive websites and dynamic application interfaces",
+      "Implemented custom backend modules using PHP and MySQL",
+      "Integrated frontend experiences with server-side logic",
     ],
     tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
   },
@@ -105,8 +95,21 @@ export const projects = [
     category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Full Shopify Plus storefront for Kylie Jenner's beauty brand. Custom Liquid sections, interactive components, VTO integration and advanced product filtering.",
-    tags: ["Shopify Plus", "Liquid", "JavaScript", "Webpack"],
+      "Shopify Plus experience for a global beauty brand with accessibility-first architecture, custom merchandising blocks and performance-led UX.",
+    tags: ["Shopify Plus", "Liquid", "Accessibility", "Performance", "Metafields", "Custom Sections"],
+    contribution: [
+      "Built reusable custom sections and metafield-driven content blocks",
+      "Implemented Liquid architecture updates for campaign flexibility",
+      "Improved accessibility patterns across navigation and product interactions",
+    ],
+    challenges: [
+      "Balancing rich visual storytelling with fast page performance",
+      "Keeping dynamic merchandising components maintainable for content teams",
+    ],
+    results: [
+      "Improved section reusability and reduced release effort for campaigns",
+      "Enhanced storefront speed and accessibility compliance across key templates",
+    ],
     link: "https://kyliecosmetics.com/",
     screenshot: "/projects/kyliecosmetics.png",
     featured: true,
@@ -116,8 +119,21 @@ export const projects = [
     category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Premium skincare brand storefront with accessibility-first design (WCAG 2.1 AA), custom mega-menu, advanced carousel components and screen-reader optimisations.",
-    tags: ["Shopify Plus", "Liquid", "Accessibility"],
+      "Responsive redesign delivery for a premium skincare storefront with refined PDP and collection page experiences.",
+    tags: ["Shopify Plus", "Liquid", "Responsive Redesign", "PDP", "Collection Pages", "Performance"],
+    contribution: [
+      "Delivered responsive redesign updates across core templates",
+      "Enhanced PDP UX and conversion-focused merchandising structure",
+      "Refactored collection page rendering for better mobile flow",
+    ],
+    challenges: [
+      "Maintaining premium visual quality while improving template speed",
+      "Coordinating design parity across multiple breakpoints",
+    ],
+    results: [
+      "Improved mobile usability and engagement on PDP and collection pages",
+      "Reduced layout inconsistency issues across devices",
+    ],
     link: "https://philosophy.com/",
     screenshot: "/projects/philosophy.png",
     featured: true,
@@ -127,8 +143,21 @@ export const projects = [
     category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Luxury skincare brand storefront with editorial layouts, bespoke animations and high-performance Shopify Plus architecture.",
-    tags: ["Shopify Plus", "Liquid", "JavaScript"],
+      "Luxury UI implementation on Shopify Plus with SEO-conscious page structure and accessibility-focused interactions.",
+    tags: ["Shopify Plus", "Luxury UI", "Shopify Sections", "SEO", "Accessibility"],
+    contribution: [
+      "Implemented luxury-themed UI components using modular Shopify sections",
+      "Applied semantic content structure to improve SEO indexing",
+      "Upgraded interactive modules for keyboard and screen-reader accessibility",
+    ],
+    challenges: [
+      "Preserving high-end motion and visuals without sacrificing performance",
+      "Maintaining accessibility consistency in animation-rich layouts",
+    ],
+    results: [
+      "Improved visual consistency across editorial and commerce templates",
+      "Strengthened SEO and accessibility baseline for long-term growth",
+    ],
     link: "https://orveda.com/",
     screenshot: "/projects/orveda.png",
     featured: true,
@@ -138,8 +167,21 @@ export const projects = [
     category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Flagship Coty fragrance brand store featuring immersive product storytelling, custom PLP card components and responsive layouts.",
-    tags: ["Shopify Plus", "Liquid", "Tailwind CSS"],
+      "Flagship fragrance storefront with advanced PLP/PDP experiences, Algolia-powered discovery and premium interaction design.",
+    tags: ["Shopify Plus", "Algolia", "Accessibility", "Fireworks", "Theme Customization", "PLP/PDP"],
+    contribution: [
+      "Implemented PLP and PDP component customizations for campaign-led merchandising",
+      "Integrated Algolia for faster search and category discovery experiences",
+      "Delivered theme customization and animation treatments including Fireworks sections",
+    ],
+    challenges: [
+      "Coordinating fast product discovery with rich visual storytelling",
+      "Ensuring accessibility behavior across custom search and filter states",
+    ],
+    results: [
+      "Improved on-site discovery flow and product findability",
+      "Enabled flexible campaign updates through modular theme architecture",
+    ],
     link: "https://eu.infinimentcoty.com/",
     screenshot: "/projects/infinimentcoty.png",
     featured: false,
@@ -149,8 +191,21 @@ export const projects = [
     category: "Shopify",
     region: "US & UK",
     description:
-      "Custom Shopify storefront for a fine jewellery brand, featuring rich product pages, personalisation options and a seamless checkout experience.",
-    tags: ["Shopify", "Liquid", "JavaScript"],
+      "Custom jewelry storefront featuring bespoke product personalization and high-trust testimonial storytelling.",
+    tags: ["Shopify", "Liquid", "JavaScript", "Store Migration", "Custom Jewelry Form", "Testimonials"],
+    contribution: [
+      "Built custom jewelry design request form tied to product and variant context",
+      "Implemented custom testimonials section for social proof on key templates",
+      "Supported Store Migration with data and content structure alignment",
+    ],
+    challenges: [
+      "Capturing complex personalization details in a user-friendly form flow",
+      "Migrating legacy content while retaining SEO-relevant structure",
+    ],
+    results: [
+      "Improved lead quality for custom jewelry inquiries",
+      "Increased trust signals with rich testimonial placements",
+    ],
     link: "https://www.proclamationjewelry.com/",
     screenshot: "/projects/proclamationjewelry.png",
     featured: false,
@@ -160,8 +215,21 @@ export const projects = [
     category: "Shopify",
     region: "US & UK",
     description:
-      "Artisan chocolate e-commerce store with custom gifting features, product bundles and an elegant brand experience built on Shopify.",
-    tags: ["Shopify", "Liquid", "CSS"],
+      "Artisan gifting storefront with advanced gift-box configuration and campaign-ready merchandising sections.",
+    tags: ["Shopify", "Liquid", "CSS", "Store Migration", "Advanced Giftbox Section"],
+    contribution: [
+      "Built advanced giftbox customized section for curated gifting combinations",
+      "Implemented storefront refinements for seasonal gifting campaigns",
+      "Supported Store Migration and structure validation across collections",
+    ],
+    challenges: [
+      "Managing combinational gift options without confusing user flow",
+      "Retaining product metadata consistency during migration",
+    ],
+    results: [
+      "Improved gift product discoverability and customization clarity",
+      "Reduced merchandising update effort for campaign launches",
+    ],
     link: "https://chocolatmoderne.com/",
     screenshot: "/projects/chocolatmoderne.png",
     featured: false,
@@ -171,19 +239,45 @@ export const projects = [
     category: "Shopify",
     region: "US & UK",
     description:
-      "Protective equipment Shopify store with custom filtering, product variant management and performance-optimised pages.",
-    tags: ["Shopify", "Liquid", "JavaScript"],
+      "Protective equipment storefront with advanced YMM discovery and performance-optimized catalog journeys.",
+    tags: ["Shopify", "Liquid", "JavaScript", "Store Migration", "Advanced YMM"],
+    contribution: [
+      "Implemented advanced YMM (Year Make Model) search for product compatibility",
+      "Optimized collection filters and variant handling for faster path-to-purchase",
+      "Executed Store Migration support and navigation mapping",
+    ],
+    challenges: [
+      "Mapping fitment logic accurately across large catalog data",
+      "Balancing complex filtering with fast page response",
+    ],
+    results: [
+      "Improved product compatibility discovery for high-intent users",
+      "Reduced friction in fitment-based product selection",
+    ],
     link: "https://www.eliteshield.com/",
     screenshot: "/projects/eliteshield.png",
     featured: false,
   },
   {
     title: "WaterChef",
-    category: "Shopify",
+    category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Water filtration brand store with subscription product support, technical comparison tables and a clean, conversion-focused layout.",
-    tags: ["Shopify", "Liquid", "REST API"],
+      "Water filtration storefront with subscription support, technical comparison UX and migration-led platform improvements.",
+    tags: ["Shopify Plus", "Liquid", "REST API", "Store Migration"],
+    contribution: [
+      "Built technical comparison modules for product decision support",
+      "Enhanced subscription and recurring-purchase user flow",
+      "Contributed to Store Migration and legacy content adaptation",
+    ],
+    challenges: [
+      "Presenting technical data clearly for non-technical shoppers",
+      "Migrating structured product data without compatibility regressions",
+    ],
+    results: [
+      "Improved clarity in product selection journeys",
+      "Strengthened post-migration reliability across product pages",
+    ],
     link: "https://www.waterchef.com/",
     screenshot: "/projects/waterchef.png",
     featured: false,
@@ -193,19 +287,45 @@ export const projects = [
     category: "Shopify",
     region: "US & UK",
     description:
-      "Fashion brand Shopify store featuring custom theme development, lookbook sections and mobile-first responsive design.",
-    tags: ["Shopify", "Liquid", "CSS"],
+      "Fashion storefront built with custom theme architecture, lookbook storytelling and migration-backed rollout.",
+    tags: ["Shopify", "Liquid", "CSS", "Store Migration"],
+    contribution: [
+      "Built custom theme sections for lookbook and campaign storytelling",
+      "Refined responsive behavior for mobile-first shopping journeys",
+      "Supported Store Migration and template parity checks",
+    ],
+    challenges: [
+      "Maintaining design precision across diverse image-led layouts",
+      "Ensuring migrated content rendered consistently on new templates",
+    ],
+    results: [
+      "Improved visual merchandising consistency across collections",
+      "Reduced post-launch template issues after migration",
+    ],
     link: "https://bemoxe.com/",
     screenshot: "/projects/bemoxe.png",
     featured: false,
   },
   {
     title: "Hold The Magic",
-    category: "Shopify",
+    category: "Shopify Plus",
     region: "US & UK",
     description:
-      "Lifestyle and wellness Shopify store with custom theme development, engaging product storytelling and a conversion-optimised shopping experience.",
-    tags: ["Shopify", "Liquid", "JavaScript"],
+      "Lifestyle storefront with narrative product storytelling and migration-assisted template modernization.",
+    tags: ["Shopify Plus", "Liquid", "JavaScript", "Store Migration"],
+    contribution: [
+      "Implemented conversion-focused storytelling blocks and product modules",
+      "Enhanced interactive storefront behavior with custom scripts",
+      "Assisted Store Migration and collection data mapping",
+    ],
+    challenges: [
+      "Balancing storytelling depth with conversion-focused page flow",
+      "Preserving SEO-friendly URLs and structure during migration",
+    ],
+    results: [
+      "Improved campaign presentation quality across landing templates",
+      "Delivered smoother post-migration navigation and indexing continuity",
+    ],
     link: "https://holdthemagic.com/",
     screenshot: "/projects/holdthemagic.png",
     featured: false,
@@ -217,17 +337,37 @@ export const projects = [
     description:
       "Silver jewellery and gifts Shopify storefront with custom collection layouts, product variant management and a refined brand aesthetic.",
     tags: ["Shopify", "Liquid", "CSS"],
+    contribution: [
+      "Built custom collection layouts for gift-centric browsing",
+      "Improved variant display logic for product clarity",
+    ],
+    challenges: [
+      "Coordinating gift catalog presentation across broad assortments",
+    ],
+    results: [
+      "Enhanced browsing flow and category-level merchandising consistency",
+    ],
     link: "https://silverngifts.com/",
     screenshot: "/projects/silverngifts.png",
     featured: false,
   },
   {
     title: "Pure Nootropics",
-    category: "Shopify",
+    category: "Shopify Plus",
     region: "US & UK",
     description:
       "Health and nootropics supplement Shopify store with detailed product pages, subscription support and a clean, trust-focused design.",
-    tags: ["Shopify", "Liquid", "JavaScript"],
+    tags: ["Shopify Plus", "Liquid", "JavaScript"],
+    contribution: [
+      "Implemented trust-oriented PDP content modules and comparison content",
+      "Enhanced subscription UX and recurring order flow",
+    ],
+    challenges: [
+      "Presenting compliance-conscious product information clearly",
+    ],
+    results: [
+      "Improved readability and trust signals on high-intent product pages",
+    ],
     link: "https://www.purenootropics.net",
     screenshot: "/projects/purenootropics.png",
     featured: false,
@@ -239,17 +379,37 @@ export const projects = [
     description:
       "Luxury textile and wallpaper brand storefront with editorial design, custom collection layouts and high-end visual presentation.",
     tags: ["Shopify", "Liquid", "CSS"],
+    contribution: [
+      "Built editorial-style collection templates for luxury browsing",
+      "Implemented visual hierarchy refinements for premium storytelling",
+    ],
+    challenges: [
+      "Maintaining performance with media-rich luxury layouts",
+    ],
+    results: [
+      "Improved premium brand presentation while preserving storefront usability",
+    ],
     link: "https://avivastanoff.com",
     screenshot: "/projects/avivastanoff.png",
     featured: false,
   },
   {
     title: "Gesner",
-    category: "Shopify",
+    category: "Shopify Plus",
     region: "US & UK",
     description:
       "Custom Shopify storefront with tailored product pages, brand-aligned design and seamless user experience.",
-    tags: ["Shopify", "Liquid", "JavaScript"],
+    tags: ["Shopify Plus", "Liquid", "JavaScript"],
+    contribution: [
+      "Developed tailored product templates aligned to brand content needs",
+      "Implemented custom interaction behavior for key commerce blocks",
+    ],
+    challenges: [
+      "Translating brand-specific requirements into reusable theme components",
+    ],
+    results: [
+      "Improved maintainability of custom storefront modules",
+    ],
     link: "https://gesner.com/",
     screenshot: "/projects/gesner.png",
     featured: false,
@@ -261,6 +421,16 @@ export const projects = [
     description:
       "Shopify Plus store for a leading craft cutting machine brand, featuring complex product variations, tutorials integration and a high-volume catalogue.",
     tags: ["Shopify Plus", "Liquid", "JavaScript"],
+    contribution: [
+      "Handled high-volume catalog template optimization and variant UX",
+      "Integrated tutorials and educational content with commerce templates",
+    ],
+    challenges: [
+      "Supporting complex variant combinations at scale",
+    ],
+    results: [
+      "Improved catalog navigation and template consistency for large assortments",
+    ],
     link: "https://www.sizzix.com/",
     screenshot: "/projects/sizzix.png",
     featured: false,
@@ -272,6 +442,16 @@ export const projects = [
     description:
       "Eyewear e-commerce storefront serving the African market with virtual try-on features, prescription management and localised experience.",
     tags: ["Shopify", "Liquid", "JavaScript"],
+    contribution: [
+      "Implemented localization-aware storefront behavior and content handling",
+      "Supported eyewear-specific product flow enhancements",
+    ],
+    challenges: [
+      "Balancing regional UX needs with consistent product template structure",
+    ],
+    results: [
+      "Improved product discovery and localized browsing experience",
+    ],
     link: "https://optica.africa/",
     screenshot: "/projects/optica.png",
     featured: false,
@@ -284,6 +464,16 @@ export const projects = [
     description:
       "B2B e-commerce store for industrial cable tie products with bulk ordering, custom pricing tiers and a comprehensive product catalogue.",
     tags: ["Shopify", "Liquid", "JavaScript"],
+    contribution: [
+      "Built B2B-focused ordering flows for bulk and tiered pricing use cases",
+      "Optimized category architecture for large industrial catalogs",
+    ],
+    challenges: [
+      "Simplifying complex industrial catalog navigation for wholesale buyers",
+    ],
+    results: [
+      "Improved B2B order flow usability and catalog findability",
+    ],
     link: "https://www.cabletiesunlimited.com/",
     screenshot: "/projects/cabletiesunlimited.png",
     featured: false,
@@ -295,6 +485,16 @@ export const projects = [
     description:
       "Industrial supply Shopify store with wholesale features, category-based navigation and a streamlined B2B checkout.",
     tags: ["Shopify", "Liquid", "CSS"],
+    contribution: [
+      "Implemented wholesale-friendly layout patterns and category logic",
+      "Refined checkout journey for repeat B2B customers",
+    ],
+    challenges: [
+      "Balancing speed and clarity across dense category hierarchies",
+    ],
+    results: [
+      "Improved wholesale navigation efficiency and conversion flow",
+    ],
     link: "https://cabletiesupply.com/",
     screenshot: "/projects/cabletiesupply.png",
     featured: false,
@@ -306,6 +506,16 @@ export const projects = [
     description:
       "Fashion and lifestyle Shopify store catering to the South Asian market with custom collection pages and a mobile-first design approach.",
     tags: ["Shopify", "Liquid", "CSS"],
+    contribution: [
+      "Designed mobile-first collection and merchandising templates",
+      "Built custom content sections for regional campaign storytelling",
+    ],
+    challenges: [
+      "Maintaining visual consistency across mobile-first, image-heavy pages",
+    ],
+    results: [
+      "Improved mobile storefront readability and merchandising quality",
+    ],
     link: "https://nikshitha.com/",
     screenshot: "/projects/nikshitha.png",
     featured: false,
@@ -313,8 +523,8 @@ export const projects = [
 ];
 
 export const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "20+", label: "Shopify Projects" },
-  { value: "4", label: "Companies" },
-  { value: "95+", label: "Avg Lighthouse Score" },
+  { value: "5+", label: "Years" },
+  { value: "30+", label: "Shopify Features" },
+  { value: "20+", label: "Production Stores" },
+  { value: "95+", label: "Accessibility Score" },
 ];
