@@ -520,6 +520,132 @@ export const projects = [
     screenshot: "/projects/nikshitha.png",
     featured: false,
   },
+  {
+    title: "Metal Detector",
+    category: "Shopify Plus",
+    region: "US & UK",
+    description:
+      "Specialty commerce storefront for detector equipment with product-rich navigation and performance-focused buying flows.",
+    tags: ["Shopify Plus", "Liquid", "JavaScript"],
+    contribution: [
+      "Implemented product template and collection refinements for accessory-heavy catalogs",
+      "Enhanced storefront interactions for faster product comparison and selection",
+    ],
+    challenges: [
+      "Managing deep catalog discoverability without overwhelming first-time users",
+    ],
+    results: [
+      "Improved product navigation clarity and shopping flow consistency",
+    ],
+    link: "https://www.metaldetector.com/",
+    screenshot: "/projects/metaldetector.png",
+    featured: false,
+  },
+  {
+    title: "Built",
+    category: "Shopify Plus",
+    region: "US & UK",
+    description:
+      "Premium brand storefront delivered on Shopify Plus with modern UX, conversion-focused merchandising and scalable content control.",
+    tags: ["Shopify Plus", "Liquid", "Theme Customization"],
+    contribution: [
+      "Delivered Shopify Plus theme customizations for campaign and product storytelling",
+      "Built reusable blocks to speed up merchandising updates across templates",
+    ],
+    challenges: [
+      "Balancing premium visual design with fast, responsive storefront behavior",
+    ],
+    results: [
+      "Improved launch agility for campaigns with modular section architecture",
+    ],
+    link: "https://built.com/",
+    screenshot: "/projects/built.png",
+    featured: false,
+  },
+  {
+    title: "Lovers Tempo",
+    category: "Shopify",
+    region: "US & UK",
+    description:
+      "Jewelry storefront with elegant merchandising layouts and conversion-oriented product presentation patterns.",
+    tags: ["Shopify", "Liquid", "CSS"],
+    contribution: [
+      "Refined collection and PDP layouts for stronger product storytelling",
+      "Implemented UI adjustments to improve mobile browsing continuity",
+    ],
+    challenges: [
+      "Keeping visual elegance while preserving fast browsing and load speed",
+    ],
+    results: [
+      "Improved readability and merchandising consistency across devices",
+    ],
+    link: "https://loverstempo.com/",
+    screenshot: "/projects/loverstempo.png",
+    featured: false,
+  },
+  {
+    title: "My Celavi",
+    category: "Shopify",
+    region: "US & UK",
+    description:
+      "Lifestyle and wellness storefront with focused landing experiences and conversion-friendly content structure.",
+    tags: ["Shopify", "Liquid", "JavaScript"],
+    contribution: [
+      "Implemented custom sections for campaign-focused landing pages",
+      "Improved content hierarchy for clearer product positioning",
+    ],
+    challenges: [
+      "Aligning brand storytelling with direct response commerce layouts",
+    ],
+    results: [
+      "Improved campaign page usability and product message clarity",
+    ],
+    link: "https://mycelavi.com/",
+    screenshot: "/projects/mycelavi.png",
+    featured: false,
+  },
+  {
+    title: "RapidLash",
+    category: "Shopify",
+    region: "US & UK",
+    description:
+      "Beauty ecommerce storefront optimized for product education, trust signals and repeat purchase UX.",
+    tags: ["Shopify", "Liquid", "SEO"],
+    contribution: [
+      "Enhanced PDP information hierarchy for benefit-led product communication",
+      "Applied template-level SEO and content structure improvements",
+    ],
+    challenges: [
+      "Presenting compliance-sensitive beauty claims clearly across templates",
+    ],
+    results: [
+      "Improved product page clarity and trust-focused content presentation",
+    ],
+    link: "https://rapidlash.com/",
+    screenshot: "/projects/rapidlash.png",
+    featured: false,
+  },
+  {
+    title: "Real Purity",
+    category: "Shopify",
+    region: "US & UK",
+    description:
+      "Skincare storefront with clean UI patterns, content-led merchandising and conversion-ready product templates.",
+    tags: ["Shopify", "Liquid", "Theme Customization"],
+    contribution: [
+      "Implemented template customizations for category and PDP consistency",
+      "Improved reusable section structure for faster content updates",
+    ],
+    challenges: [
+      "Maintaining a minimal aesthetic while supporting rich commerce content",
+    ],
+    results: [
+      "Improved maintainability and visual consistency across key storefront pages",
+    ],
+    link: "https://www.realpurity.com/",
+    screenshot: "/projects/realpurity.png",
+    featured: false,
+  },
 ];
 
 export const stats = [
@@ -528,3 +654,43 @@ export const stats = [
   { value: "20+", label: "Production Stores" },
   { value: "95+", label: "Accessibility Score" },
 ];
+
+export const projectCompanyReferenceByTitle: Record<string, "Photon" | "Own" | "Innoppl"> = {
+  "Kylie Cosmetics": "Photon",
+  "Philosophy": "Photon",
+  Orveda: "Photon",
+  "Infiniment Coty": "Photon",
+  Nikshitha: "Own",
+  "Cable Ties Unlimited": "Own",
+  "Cable Ties Supply": "Own",
+};
+
+export function getProjectCompanyReference(projectTitle: string): "Photon" | "Own" | "Innoppl" {
+  return projectCompanyReferenceByTitle[projectTitle] ?? "Innoppl";
+}
+
+export function sortProjectsByPriority<T extends { title: string; category: string }>(projectList: T[]): T[] {
+  const companyRank: Record<"Photon" | "Innoppl" | "Own", number> = {
+    Photon: 0,
+    Innoppl: 1,
+    Own: 2,
+  };
+
+  return [...projectList].sort((a, b) => {
+    const aCompanyRank = companyRank[getProjectCompanyReference(a.title)];
+    const bCompanyRank = companyRank[getProjectCompanyReference(b.title)];
+
+    if (aCompanyRank !== bCompanyRank) {
+      return aCompanyRank - bCompanyRank;
+    }
+
+    const aCategoryRank = a.category === "Shopify Plus" ? 0 : 1;
+    const bCategoryRank = b.category === "Shopify Plus" ? 0 : 1;
+
+    if (aCategoryRank !== bCategoryRank) {
+      return aCategoryRank - bCategoryRank;
+    }
+
+    return a.title.localeCompare(b.title);
+  });
+}

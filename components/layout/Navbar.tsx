@@ -84,7 +84,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <a
-              href="/resume/Shanmugam_Paramasivam_Resume.pdf"
+              href="/resume/Shanmugam_Paramasivam_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-purple-500/40 text-purple-300 text-sm font-medium hover:bg-purple-500/10 hover:border-purple-400 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"

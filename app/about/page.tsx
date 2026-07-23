@@ -109,10 +109,12 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="flex justify-between items-start border-b border-white/5 py-3 last:border-0"
+                  className="flex flex-col gap-1.5 sm:flex-row sm:justify-between sm:items-start border-b border-white/5 py-3 last:border-0"
                 >
                   <span className="text-zinc-500 text-sm">{item.label}</span>
-                  <span className="text-white text-sm font-medium text-right max-w-[55%]">{item.value}</span>
+                  <span className="text-white text-sm font-medium text-left sm:text-right sm:max-w-[62%] break-words">
+                    {item.value}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>

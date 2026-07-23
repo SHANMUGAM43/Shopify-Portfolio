@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn, staggerItem } from "@/components/ui/FadeIn";
-import { projects } from "@/lib/data";
+import { getProjectCompanyReference, projects, sortProjectsByPriority } from "@/lib/data";
 
 type Project = (typeof projects)[number] & {
   contribution?: string[];
@@ -23,6 +23,7 @@ export function ProjectCard({
 }) {
   const [imgError, setImgError] = useState(false);
   const previewTags = compact ? project.tags.slice(0, 4) : project.tags;
+  const companyReference = getProjectCompanyReference(project.title);
 
   return (
     <motion.article
@@ -85,6 +86,12 @@ export function ProjectCard({
 
         <span className="absolute top-3 left-3 text-xs font-bold text-white/30 select-none">
           {String(index + 1).padStart(2, "0")}
+        </span>
+
+        <span className="absolute top-3 right-3 z-10">
+          <Badge variant="subtle" className="text-[10px] uppercase tracking-wide text-zinc-900 border border-white/90 bg-white/90 shadow-sm shadow-black/15">
+            {companyReference}
+          </Badge>
         </span>
       </a>
 
@@ -192,7 +199,7 @@ export function ProjectCard({
 }
 
 export function FeaturedProjects() {
-  const featured = projects;
+  const featured = sortProjectsByPriority(projects);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const scrollSlider = (direction: "prev" | "next") => {

@@ -168,7 +168,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-white mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08] text-white mb-4"
             >
               Shopify Plus Developer | Software Engineer II
             </motion.h1>
@@ -177,7 +177,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-2xl sm:text-3xl font-semibold text-zinc-400 mb-6"
+              className="text-lg sm:text-2xl lg:text-3xl font-semibold text-zinc-400 mb-6"
             >
               <span
                 style={{
@@ -200,7 +200,7 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
             >
               <Button
-                href="/resume/Shanmugam_Paramasivam_Resume.pdf"
+                href="/resume/Shanmugam_Paramasivam_resume.pdf"
                 external
                 size="md"
                 ariaLabel="Open resume PDF in a new tab"
@@ -380,9 +380,9 @@ export function HomeAboutSnippet() {
                 { label: "Location", value: "Chennai" },
                 { label: "Languages", value: "Liquid, JavaScript, TypeScript" },
               ].map((item) => (
-                <div key={item.label} className="flex justify-between items-center border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                <div key={item.label} className="flex flex-col gap-1.5 sm:flex-row sm:justify-between sm:items-center border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   <span className="text-zinc-500 text-sm">{item.label}</span>
-                  <span className="text-white text-sm font-medium">{item.value}</span>
+                  <span className="text-white text-sm font-medium text-left sm:text-right break-words sm:max-w-[62%]">{item.value}</span>
                 </div>
               ))}
             </div>

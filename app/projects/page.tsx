@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PageShell } from "@/components/layout/PageShell";
 import { FadeIn, BlurIn, StaggerContainer } from "@/components/ui/FadeIn";
 import { ProjectCard } from "@/components/sections/ProjectCard";
-import { projects } from "@/lib/data";
+import { projects, sortProjectsByPriority } from "@/lib/data";
 
 const regions = ["All", "US & UK", "Asia"] as const;
 type Region = (typeof regions)[number];
@@ -115,8 +115,9 @@ function FilterDropdown({
 export default function ProjectsPage() {
   const [active, setActive] = useState<Region>("All");
   const [activeCategory, setActiveCategory] = useState("All");
+  const orderedProjects = sortProjectsByPriority(projects);
 
-  const filtered = projects.filter((project) => {
+  const filtered = orderedProjects.filter((project) => {
     const matchesRegion = active === "All" || project.region === active;
     const matchesCategory = activeCategory === "All" || project.category === activeCategory;
     return matchesRegion && matchesCategory;
@@ -124,8 +125,8 @@ export default function ProjectsPage() {
 
   // Region options: filter by active type so only relevant regions show counts
   const projectsForRegion = activeCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+    ? orderedProjects
+    : orderedProjects.filter((p) => p.category === activeCategory);
 
   const regionCounts: Record<string, number> = Object.fromEntries(
     regions.map((r) => [
@@ -143,8 +144,8 @@ export default function ProjectsPage() {
 
   // Type options: filter by active region so only relevant types show counts
   const projectsForCategory = active === "All"
-    ? projects
-    : projects.filter((p) => p.region === active);
+    ? orderedProjects
+    : orderedProjects.filter((p) => p.region === active);
 
   const categoryCounts: Record<string, number> = Object.fromEntries(
     categories.map((c) => [
@@ -192,7 +193,7 @@ export default function ProjectsPage() {
                 // if the current category no longer exists in the new region, reset it
                 const stillAvailable = categories.filter((c) => {
                   if (c === "All") return true;
-                  const pool = v === "All" ? projects : projects.filter((p) => p.region === v);
+                  const pool = v === "All" ? orderedProjects : orderedProjects.filter((p) => p.region === v);
                   return pool.some((p) => p.category === c);
                 });
                 if (!stillAvailable.includes(activeCategory)) setActiveCategory("All");
@@ -209,7 +210,7 @@ export default function ProjectsPage() {
                 // if the current region no longer exists in the new type, reset it
                 const stillAvailable = regions.filter((r) => {
                   if (r === "All") return true;
-                  const pool = v === "All" ? projects : projects.filter((p) => p.category === v);
+                  const pool = v === "All" ? orderedProjects : orderedProjects.filter((p) => p.category === v);
                   return pool.some((p) => p.region === r);
                 });
                 if (!stillAvailable.includes(active)) setActive("All");

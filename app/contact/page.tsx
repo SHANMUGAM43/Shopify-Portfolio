@@ -327,7 +327,9 @@ export default function ContactPage() {
                   >{method.icon}</motion.span>
                   <div>
                     <p className="text-zinc-500 text-xs mb-0.5">{method.label}</p>
-                    <p className="text-white text-sm font-medium">{method.value}</p>
+                    <p className="text-white text-sm font-medium break-words">
+                      {method.value}
+                    </p>
                   </div>
                 </motion.a>
               ))}
@@ -353,7 +355,7 @@ export default function ContactPage() {
               {/* Resume download */}
               <motion.a
                 variants={staggerItem}
-                href="/resume/Shanmugam_Paramasivam_Resume.pdf"
+                href="/resume/Shanmugam_Paramasivam_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.01, y: -1 }}
